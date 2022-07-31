@@ -1,0 +1,100 @@
+{
+    "name": "react-typescript-starter",
+    "homepage": "/",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.1.1",
+        "@fortawesome/free-solid-svg-icons": "^6.1.1",
+        "@fortawesome/react-fontawesome": "^0.1.18",
+        "@testing-library/jest-dom": "^5.16.4",
+        "@testing-library/react": "^13.3.0",
+        "@testing-library/user-event": "^14.2.0",
+        "@types/jest": "^28.1.1",
+        "@types/node": "^17.0.42",
+        "modal": "^1.2.0",
+        "next": "^12.2.3",
+        "react": "^18.1.0",
+        "react-bootstrap": "^2.4.0",
+        "react-csv": "^2.2.2",
+        "react-dom": "^18.1.0",
+        "react-hook-form": "^7.32.0",
+        "react-intl": "^6.0.4",
+        "react-modal": "^3.15.1",
+        "react-scripts": "^5.0.1",
+        "swr": "^1.3.0",
+        "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "next build",
+        "clean": "rimraf .next",
+        "full-clean": "rimraf .next node_modules",
+        "dev": "next dev",
+        "test": "react-scripts test",
+        "test:cov": "react-scripts test --coverage --watchAll",
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
+        "lint": "eslint ./src --ext .tsx --ext .ts --max-warnings 0",
+        "format": "prettier --config .prettierrc --write src/**/*.{ts,tsx}",
+        "extract-messages": "set NODE_ENV=production && babel ./src >NUL"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@babel/core": "^7.18.2",
+        "@types/react": "^18.0.12",
+        "@types/react-bootstrap": "^0.32.30",
+        "@types/react-csv": "^1.1.2",
+        "@types/react-dom": "^18.0.5",
+        "@types/react-modal": "^3.13.1",
+        "@typescript-eslint/eslint-plugin": "^5.27.1",
+        "@typescript-eslint/parser": "^5.27.1",
+        "babel-plugin-react-intl": "^8.2.25",
+        "eslint": "^8.17.0",
+        "eslint-config-intense": "^0.8.1",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-eslint-comments": "~3.2.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jest": "^26.5.3",
+        "eslint-plugin-jest-formatting": "~3.1.0",
+        "eslint-plugin-no-secrets": "^0.8.9",
+        "eslint-plugin-node": "~11.1.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-ramda": "~2.5.1",
+        "eslint-plugin-react": "^7.30.0",
+        "eslint-plugin-react-hooks": "^4.5.0",
+        "eslint-plugin-simple-import-sort": "~7.0.0",
+        "gh-pages": "^4.0.0",
+        "prettier": "^2.6.2",
+        "prettier-eslint": "^15.0.1",
+        "typescript": "^4.7.3"
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**/*.ts",
+            "src/**/*.tsx",
+            "!src/index.tsx",
+            "!src/reportWebVitals.ts",
+            "!src/react-app-env.d.ts"
+        ]
+    }
+}
