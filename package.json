@@ -13,7 +13,7 @@
         "@types/jest": "^28.1.6",
         "@types/node": "^18.6.3",
         "modal": "^1.2.0",
-        "next": "^12.2.3",
+        "next": "^12.2.4",
         "react": "^18.2.0",
         "react-bootstrap": "^2.4.0",
         "react-csv": "^2.2.2",
