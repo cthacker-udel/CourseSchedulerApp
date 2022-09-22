@@ -10,6 +10,7 @@ import React from "react";
 import { OverlayTrigger } from "react-bootstrap";
 import type { OverlayInjectedProps } from "react-bootstrap/esm/Overlay";
 import { generateTooltip } from "src/helpers";
+import { useLogin } from "src/hooks/useLogin";
 
 import styles from "./Dashboard.module.css";
 
@@ -20,6 +21,7 @@ import styles from "./Dashboard.module.css";
  */
 export const Dashboard = (): JSX.Element => {
     const router = useRouter();
+    useLogin();
 
     return (
         <div className="h-100 mx-auto w-50 d-flex flex-column align-items-center justify-content-center">
@@ -50,7 +52,12 @@ export const Dashboard = (): JSX.Element => {
                             />
                         </OverlayTrigger>
                     </span>
-                    <span className="p-3">
+                    <span
+                        className="p-3"
+                        onClick={async (): Promise<void> => {
+                            await router.push("/dashboard/semester");
+                        }}
+                    >
                         <OverlayTrigger
                             delay={{ hide: 100, show: 500 }}
                             overlay={(
@@ -69,7 +76,12 @@ export const Dashboard = (): JSX.Element => {
                     </span>
                 </div>
                 <div className="d-flex flex-row">
-                    <span className="p-3">
+                    <span
+                        className="p-3"
+                        onClick={async (): Promise<void> => {
+                            await router.push("/dashboard/plan");
+                        }}
+                    >
                         <OverlayTrigger
                             delay={{ hide: 100, show: 500 }}
                             overlay={(
@@ -86,7 +98,12 @@ export const Dashboard = (): JSX.Element => {
                             />
                         </OverlayTrigger>
                     </span>
-                    <span className="p-3">
+                    <span
+                        className="p-3"
+                        onClick={async (): Promise<void> => {
+                            await router.push("/courses/read");
+                        }}
+                    >
                         <OverlayTrigger
                             delay={{ hide: 100, show: 500 }}
                             overlay={(
