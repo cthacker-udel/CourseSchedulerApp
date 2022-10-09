@@ -53,6 +53,10 @@ export const MultiSelectSearch = ({
     const dropdownReference = React.createRef<HTMLDivElement>();
     const dropdownContainerReference = React.createRef<HTMLDivElement>();
     const inputReference = React.createRef<HTMLInputElement>();
+    const searchCache: { [key: string]: number } = React.useMemo(
+        () => ({}),
+        [],
+    );
 
     /**
      * Callback that fires when the `focusin` event fires, effectively checking if we focused into the multiselect div
@@ -102,6 +106,9 @@ export const MultiSelectSearch = ({
      */
     const findIndexToScrollTo = React.useCallback(
         (inputtedValue: string) => {
+            if (searchCache[inputtedValue]) {
+                return searchCache[inputtedValue];
+            }
             const findFirstIndex = items.findIndex((eachItem) => {
                 const result = displayItemField
                     ? eachItem[displayItemField] === inputtedValue ||
@@ -110,9 +117,10 @@ export const MultiSelectSearch = ({
                     : eachItem === inputtedValue;
                 return result;
             });
+            searchCache[inputtedValue] = findFirstIndex;
             return findFirstIndex;
         },
-        [displayItemField, items],
+        [displayItemField, items, searchCache],
     );
 
     React.useEffect(() => {
@@ -250,7 +258,7 @@ export const MultiSelectSearch = ({
             >
                 <input
                     autoComplete="off"
-                    className="border-0 w-100 me-4 pe-none"
+                    className={`border-0 w-100 me-4 pe-none ${styles.select_text_input}`}
                     id="multiselect-search-input"
                     onChange={(
                         changeEvent: React.ChangeEvent<HTMLInputElement>,
